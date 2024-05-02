@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<style>
+  .navbar {
+    background-image: linear-gradient(-225deg, #85f8f6 20%, #74a8e4 56%, #a199f0 100%);
+  }
+
+  .side {
+    background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+    height: 716px;
+    width: 250px;
+    padding: 80px;
+    font-size: larger;
+    font-weight: 600;
+  }
+
+  .side,
+  a {
+    color: black;
+  }
+
+  .container {
+    background-image: linear-gradient(-20deg, #d79af3 0%, #75e4fd 100%);
+    height: 716px;
+    max-width: 1348px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -716px;
+    margin-left: 250px;
+    padding: 60px;
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <a href="/#" class="navbar-brand">Navbar</a>
+    <div>
+      <a href="/login" class="btn btn-primary">Login</a>
+      <a href="/" class="btn btn-primary">Sign-Up</a>
+    </div>
+  </nav>
+
+  <div class="side">
+    <a href="/home">Home</a>
+    <a href="/addtask">Addtask</a>
+    <a href="/tasklist">Tasklist</a>
+  </div>
+
+  <div class="container">
+    <h3>Sign-Up User </h3>
+    <br>
+    <form action="/register" method="post" enctype="multipart/form-data">
+      <div class="form-data">
+        <label>Username: </label>
+        <input type="text" name="username" class="form-control" placeholder="enter username" required>
+      </div>
+      <div class="form-data">
+        <label>Email: </label>
+        <input type="email" name="email" class="form-control" placeholder="enter email" required>
+      </div>
+      <div class="form-data">
+        <label>Password: </label>
+        <input type="password" name="password" class="form-control" placeholder="enter password" required>
+      </div>
+      <div class="form-data">
+        <label>Confirm: </label>
+        <input type="password" name="confirm" class="form-control" placeholder="confirm password" required>
+      </div> <br>
+      <div class="form-data">
+        <label>Upload-Image:</label> <br>
+        <input type="file" name="image"> <br><br>
+      </div>
+      <div class="form-data">
+        <button type="submit" class="btn btn-primary" value="Account Register">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>

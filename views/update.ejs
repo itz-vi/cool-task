@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>update</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+  .navbar {
+    background-color: lightblue;
+  }
+
+  .side {
+    background-color: rgb(191, 191, 207);
+    height: 716px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    font-size: larger;
+  }
+
+  .container {
+    background-color: rgb(201, 225, 247);
+    height: 716px;
+    max-width: 1348px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -716px;
+    margin-left: 250px;
+    padding: 100px;
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">Navbar</a>
+    <div>
+      <a href="/login" class="btn btn-info">Logout</a>
+    </div>
+  </nav>
+
+  <div class="side">
+    <a href="/home">Home</a>
+    <a href="/addtask">addtask</a>
+    <a href="/tasklist">tasklist</a>
+  </div>
+
+  <div class="container">
+    <form action="/updatetask/<%= task._id %>s" method="post">
+      <div class="form-data">
+        <label>Task</label>
+        <input type="text" name="task" class="form-control" placeholder="enter username" value="<%= task.task %>">
+      </div>
+      <div class="form-data">
+        <label>Term</label>
+        <input type="text" name="term" class="form-control" placeholder="enter password" value="<%= term.term %>">
+      </div>
+      <div class="form-data">
+        <label>Date</label>
+        <input type="date" name="date" class="form-control" placeholder="dd--mm--yy" value="<%= date.date %>">
+      </div>
+
+      <div class="form-data"><br>
+        <button type="submit" class="btn btn-primary" value="update task">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>
