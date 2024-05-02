@@ -41,14 +41,16 @@ router.get('/tasklist', isLoggedIn, async function (req, res) {
 });
 
 //  ----------------  update  task --------------
-router.get('/update/:_id', isLoggedIn, async function (req, res) {
+router.get('/update/:id', isLoggedIn, async function (req, res) {
     const id = req.params.id;
     const task = await taskModel.findOne({ _id: id });
     res.render('update', { task });
 });
-router.post('/updatetask/:_id', isLoggedIn, async function (req, res) {
+
+router.post('/updatetask/:id', isLoggedIn, async function (req, res) {
+    const { task, term, date } = req.body;
     const id = req.params.id;
-    await taskModel.findByIdAndUpdate(id, req.body);
+    await taskModel.findByIdAndUpdate(id,  { task, term, date },  { new: true});
     const tasks = await taskModel.find();
     res.redirect('/tasklist', { tasks });
 });
@@ -58,7 +60,8 @@ router.post('/updatetask/:_id', isLoggedIn, async function (req, res) {
 router.get('/delete/:id', isLoggedIn, async function (req, res) {
     const id = req.params.id;
     await taskModel.deleteOne({ _id: id });
-    res.redirect('/tasklist');
+    const tasks = await taskModel.find();
+    res.redirect('/tasklist', { tasks });
 });
 
 
